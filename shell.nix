@@ -1,8 +1,14 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
-let 
-  inherit (pkgs) stdenv lib;
-in
-  pkgs.mkShell {
-    buildInputs = with pkgs; [ gcc gnumake nodejs stylua lua-language-server jdt-language-server unzip ];
-  }
+pkgs.mkShell {
+  buildInputs = with pkgs; [
+    nixpkgs-fmt
+    lua-language-server
+    gcc
+    gnumake
+    nodejs
+    stylua
+    unzip
+    stylua
+  ];
+}
